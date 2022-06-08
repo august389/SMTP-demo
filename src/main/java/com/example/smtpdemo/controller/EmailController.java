@@ -18,13 +18,8 @@ public class EmailController {
         this.emailService = emailService;
     }
 
-    @GetMapping("/test-email")
-    public String  getMail() {
-        return "test-email";
-    }
-
-    @PostMapping("/send-email")
-    public void sendMail(@RequestBody SimpleMail simpleMail) {
-        emailService.sendSimpleMessage(simpleMail.getTo(), simpleMail.getSubject(), simpleMail.getText());
+    @PostMapping("/send-email-reset-password")
+    public void sendEmailResetPassword(@RequestBody SimpleMail simpleMail) {
+        emailService.sendEmailResetPassword(simpleMail.getTo());
     }
 }
