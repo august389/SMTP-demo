@@ -4,26 +4,30 @@
     <title th:remove="all">Template for HTML email</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
-<body>
-<p style="background: aqua">
-    Hello, <span th:text="${name}">Peter Static</span>!
-</p>
-<p th:if="${name.length() > 10}">
-    Wow! You've got a long name (more than 10 chars)!
-</p>
-<p>
-    You have been successfully subscribed to the <b>CodingNConcepts</b> on
-    <span th:text="${subscriptionDate}">28-12-2012</span>
-</p>
-<p>We write on following technologies:-</p>
-<ul>
-    <li th:each="tech : ${technologies}" th:text="${tech}">Java</li>
-    <li>JavaScript</li>
-    <li>CSS</li>
-</ul>
-<p>
-    Regards, <br/>
-    <em>The CodingNConcepts Team</em>
-</p>
-</body>
+<div>
+    <div style="padding-left:30%; max-width: 55%;"><img
+            src="https://firebasestorage.googleapis.com/v0/b/allnow-image.appspot.com/o/image%2Fall_now.png?alt=media&token=e9069852-c3b3-459a-8451-cca9b659a8e9"
+            alt="" style="width:200px"></div>
+    <div style="margin: 40px 0px; padding-left:30%; max-width: 55%;" class="red-color">
+        <p>There was recently a request to change the password for your account.
+            <br>
+            If you requested this change, set a new password here:
+        </p>
+    </div>
+    <div style="padding-left:30%; max-width: 55%;">
+        <a style="text-decoration: none; padding: 7px 70px; background-color: #004A98;color: white; border-radius: 8px;"
+           th:href="${urlResetPassword}">Reset password</a>
+    </div>
+    <div style="margin: 40px 0; padding-left:30%; max-width: 55%;">
+        <p> Recovery link is vaild until <p th:text="${expiryAt}"></p></p>
+    </div>
+    <div style="padding-left:30%; max-width: 55%;">
+        <p>If you did not make this request, you can ignore this email and your password will remain the same.</p>
+    </div>
+    <div style="margin: 40px 0;padding-left:30%; max-width: 55%;">
+        <p style="line-height: 25px;">Trouble clicking? Copy and paste this URL to your browser <br> <a
+                style="color:#1f87f4; text-decoration: none;" th:href="${trouble}">https://sampleURL.com</a></p>
+    </div>
+</div>
 </html>
+
